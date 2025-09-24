@@ -1,0 +1,162 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with`a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{listings}
+\title{Sam2}
+\author{Camille Aracheloff}
+\usepackage[most]{tcolorbox}
+
+
+\begin{document}
+\maketitle
+
+%\begin{abstract}
+%Your abstract.
+%\end{abstract}
+
+\section{Presentation}
+
+Segment Anything Model 2 (SAM2)\cite{ravi2024sam} is a model developed by Meta that allows users to segment images and videos without a learning phase.\newline
+
+
+\section{Installation}
+
+
+
+
+%Y a t il une adapation entre espèce de canopé et de sous bois ? 
+
+\begin{enumerate}
+    \item create specific environment 
+    
+    \item Install drive for graphics card
+    
+    
+    \item sam2 installation
+    
+    \item run !
+\end{enumerate}
+
+
+\subsection{Creation environment}
+
+
+When we use Python for several tasks (image analysis, experiment runs), we need to use different environments to avoid conflicts between libraries. To do this: \newline
+
+
+\begin{lstlisting}
+    conda create --name <my-env>
+\end{lstlisting}
+
+
+\begin{lstlisting}
+    conda create -n sam
+\end{lstlisting}
+
+
+To open the environment: 
+
+\begin{lstlisting}
+    conda activate sam
+\end{lstlisting}
+
+
+
+It is possible to export environment and install it from a .yaml file: 
+Export when you are inside environment: 
+\begin{lstlisting}
+    conda export > environment.yaml
+\end{lstlisting}
+Or outside the environment, with myenv=sam: 
+
+\begin{lstlisting}
+    conda export --name myenv --format=environment-yaml
+\end{lstlisting}
+
+
+
+\begin{lstlisting}
+    conda env create -f environment.yaml
+\end{lstlisting}
+
+
+\subsection{Installation with graphic card}
+
+To use the graphic card (and improve the speed of calculation), the code needs to communicate with it; sam2 uses Pytorch. So, to use it, we need to know: 
+
+
+\begin{enumerate}
+    \item The compute capability of the graphic card (obtained on internet with compute capability and the model of the graphic card). \newline
+    
+    Based on it we can choose cuDNN, CUDA version: 
+    
+    \item cuDNN: \url{https://docs.nvidia.com/deeplearning/cudnn/backend/latest/reference/support-matrix.html}
+    
+    
+    \item CUDA: \url{https://pytorch.org/get-started/locally/}
+    
+\end{enumerate}
+
+SAM2 code requires python$>=3.10$, as well as torch$>=2.5.1$ and torchvision$>=0.20.1$
+
+
+
+\begin{enumerate}
+    \item install CUDA: download the version on the web site \url{https://developer.nvidia.com/cudnn}
+
+    \item install PyTorch \url{https://pytorch.org/get-started/locally/}
+    \begin{lstlisting}
+        pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cu126
+    \end{lstlisting}
+
+\end{enumerate}
+
+\subsection{Installation SAM2}
+\url{https://github.com/facebookresearch/sam2}
+
+
+
+
+After installing the graphic card, the installation now! 
+
+
+\begin{lstlisting}
+    conda activate sam
+    git clone https://github.com/facebookresearch/sam2.git && cd sam2
+    pip install -e .
+\end{lstlisting}
+
+Go in the folder (sam2)
+\begin{lstlisting}
+    cd checkpoints 
+    
+    download_ckpts.sh
+    
+    
+    cd ..
+
+\end{lstlisting}
+\begin{lstlisting}
+    pip install spyder
+\end{lstlisting}
+
+
+\subsection{Running SAM2}
+We use the code written by Emmanuel DENIMAL. 
+The code needs to be executed in a folder without any link with sam2 folder.  
+
+\bibliographystyle{alpha}
+\bibliography{sample}
+
+\end{document}

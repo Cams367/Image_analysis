@@ -1,0 +1,11 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{RGH{\etalchar{+}}24}
+
+\bibitem[RGH{\etalchar{+}}24]{ravi2024sam}
+Nikhila Ravi, Valentin Gabeur, Yuan-Ting Hu, Ronghang Hu, Chaitanya Ryali,
+  Tengyu Ma, Haitham Khedr, Roman R{\"a}dle, Chloe Rolland, Laura Gustafson,
+  et~al.
+\newblock Sam 2: Segment anything in images and videos.
+\newblock {\em arXiv preprint arXiv:2408.00714}, 2024.
+
+\end{thebibliography}
